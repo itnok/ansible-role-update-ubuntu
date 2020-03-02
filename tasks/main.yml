@@ -1,6 +1,7 @@
 ---
 # tasks file for ansible-role-update-ubuntu
-    - setup:    # equivalent to "gather_facts: yes"
+    - name: "Gather facts"
+      setup:    # equivalent to "gather_facts: yes"
 
     - name: "Update apt package cache"
       apt:
@@ -10,7 +11,7 @@
       command: apt list --upgradable
       register: pkglist
 
-    - name: "Perform upgrade of all {{pkglist.stdout_lines|length-1}} upgradable packages to the latest version"
+    - name: "Perform upgrade of all {{ pkglist.stdout_lines|length-1 }} upgradable packages to the latest version"
       apt:
         upgrade: dist
       when:
@@ -22,10 +23,10 @@
         path: /var/run/reboot-required
       register: reboot_required
 
-    - name: "Reboot of {{ansible_host}} is needed"
+    - name: "Reboot of {{ ansible_host }} is needed"
       reboot:
         reboot_timeout: 300
-      when: reboot_required.stat.exists == true
+      when: reboot_required.stat.exists
 
     - debug:
-        msg: "{{ansible_host}} is now back up and running!"
+        msg: "{{ ansible_host }} is now back up and running!"
