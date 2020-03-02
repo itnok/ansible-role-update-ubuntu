@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: update-ubuntu
+  role_name: update_ubuntu
   author: Simone Conti - @itnok
   description: Performs the equivalent of `apt update && apt dist-upgrade -y` on an Ubuntu host.
   company: itnok.com

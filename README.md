@@ -44,7 +44,7 @@ Here an example of how to use this role in your playbooks:
   become: yes
 
   roles:
-    - { role: itnok.update-ubuntu }
+    - { role: itnok.update_ubuntu }
 ```
 
 :guardsman: License
