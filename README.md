@@ -38,6 +38,7 @@ None.
 Here an example of how to use this role in your playbooks:
 
 ```
+---
 - hosts: servers
   remote_user: ubuntu   # optional (your remote user)
   gather_facts: yes     # optional
