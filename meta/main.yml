@@ -37,7 +37,7 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
-      - all
+      - bionic
 
   galaxy_tags:
     # Maximum 20 tags per role.
