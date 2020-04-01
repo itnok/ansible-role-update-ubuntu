@@ -11,6 +11,9 @@
   command: apt list --upgradable
   register: pkglist
 
+- name: "Wait for any possibly running unattended upgrade to finish"
+  raw: systemd-run --property="After=apt-daily.service apt-daily-upgrade.service" --wait /bin/true
+
 - name: "Perform upgrade of all {{ pkglist.stdout_lines|length-1 }} upgradable packages to the latest version"
   apt:
     upgrade: dist
