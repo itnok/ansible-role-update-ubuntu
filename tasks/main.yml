@@ -3,6 +3,9 @@
 - name: "Gather facts"
   setup:    # equivalent to "gather_facts: yes"
 
+- name: "Wait for any possibly running unattended upgrade to finish"
+  raw: systemd-run --property="After=apt-daily.service apt-daily-upgrade.service" --wait /bin/true
+
 - name: "Update apt package cache"
   apt:
     cache_valid_time: 1200
@@ -10,9 +13,6 @@
 - name: "Get list of available updates"
   command: apt list --upgradable
   register: pkglist
-
-- name: "Wait for any possibly running unattended upgrade to finish"
-  raw: systemd-run --property="After=apt-daily.service apt-daily-upgrade.service" --wait /bin/true
 
 - name: "Perform upgrade of all {{ pkglist.stdout_lines|length-1 }} upgradable packages to the latest version"
   apt:
