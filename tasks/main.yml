@@ -19,7 +19,7 @@
     upgrade: dist
   when:
     - pkglist.rc == 0
-    - pkglist.stdout_lines|length >= 1
+    - pkglist.stdout_lines | length >= 1
 
 - name: "Check if reboot is required"
   stat:

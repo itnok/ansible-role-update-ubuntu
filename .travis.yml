@@ -2,11 +2,15 @@
 language: python
 python: "3.6"
 
-# Use the new container infrastructure
-sudo: false
-
-# Use Ubuntu 18.04 Bionic Beaver
-dist: bionic
+# Use both...
+#   Ubuntu 18.04 Bionic Beaver
+#   Ubuntu 20.04 Focal Fossa
+jobs:
+  include:
+    - os: linux
+      dist: bionic
+    - os: linux
+      dist: focal
 
 # Install ansible
 addons:
