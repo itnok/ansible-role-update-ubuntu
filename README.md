@@ -30,7 +30,17 @@ None.
 :link: Dependencies
 -------------------
 
-None.
+- [itnok.is_ubuntu](https://galaxy.ansible.com/itnok/is_ubuntu) _(:octocat: [ansible-role-is-ubuntu](https://github.com/itnok/ansible-role-is-ubuntu))_
+
+To install dependencies use:
+```
+    $ ansible-galaxy install <dependecy.name>
+```
+
+Installation of the required Ansible Roles can also be simply addressed with:
+```
+    $ ansible-galaxy install -r requirements.yml
+```
 
 
 :notebook: Example Playbook
