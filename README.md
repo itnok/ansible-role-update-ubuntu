@@ -8,6 +8,7 @@ Performs the equivalent of `apt update && apt dist-upgrade -y` on an Ubuntu host
 
 Steps performed are:
 
+  - Get updated facts about the current Ubuntu running state
   - Update apt package cache
   - Get list of available updates
   - Perform upgrade of all upgradable packages to the latest version

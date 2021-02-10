@@ -11,11 +11,13 @@
 - name: "Check whether systemd-run is available"
   stat:
     path: "/usr/bin/systemd-run"
-  register: manage_pkg_systemd_run
+  register: update_ubuntu_systemd_run
 
 - name: "Wait for any possibly running unattended upgrade to finish"
   raw: systemd-run --property="After=apt-daily.service apt-daily-upgrade.service" --wait /bin/true
-  when: manage_pkg_systemd_run.stat.exists
+  when:
+    - update_ubuntu_systemd_run.stat.exists
+    - not is_ubuntu_inside_container | bool
 
 - name: "Update apt package cache"
   apt:
