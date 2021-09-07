@@ -1,7 +1,7 @@
 ---
 # tasks file for ansible-role-update-ubuntu
 - name: "Gather facts"
-  setup:    # equivalent to "gather_facts: yes"
+  setup: # equivalent to "gather_facts: yes"
 
 - name: "Check is_ubuntu facts"
   include_role:
@@ -26,6 +26,7 @@
 - name: "Get list of available updates"
   command: apt list --upgradable
   register: pkglist
+  changed_when: False
 
 - name: "Perform upgrade of all {{ pkglist.stdout_lines|length-1 }} upgradable packages to the latest version"
   apt:
@@ -48,6 +49,7 @@
     reboot_timeout: 300
   when: is_reboot_required | bool
 
-- debug:
+- name: "Post reboot confirmation"
+  debug:
     msg: "{{ ansible_host }} is now back up and running!"
   when: is_reboot_required | bool
