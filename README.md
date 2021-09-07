@@ -1,7 +1,7 @@
 update-ubuntu
 =============
 
-[![Build Status](https://travis-ci.org/itnok/ansible-role-update-ubuntu.svg?branch=master)](https://travis-ci.org/itnok/ansible-role-update-ubuntu) [![GitHub tag](https://img.shields.io/github/v/tag/itnok/ansible-role-update-ubuntu?sort=semver)](https://github.com/itnok/ansible-role-update-ubuntu/tags/) [![Ansible Role](https://img.shields.io/ansible/role/46971)](https://galaxy.ansible.com/itnok/update_ubuntu)
+[![Build Status](https://github.com/itnok/ansible-role-update-ubuntu/workflows/CI/badge.svg)](https://github.com/itnok/ansible-role-update-ubuntu/actions/workflows/main.yml) [![GitHub tag](https://img.shields.io/github/v/tag/itnok/ansible-role-update-ubuntu?sort=semver)](https://github.com/itnok/ansible-role-update-ubuntu/tags/) [![Ansible Role](https://img.shields.io/ansible/role/46971)](https://galaxy.ansible.com/itnok/update_ubuntu)
 
 
 Performs the equivalent of `apt update && apt dist-upgrade -y` on an Ubuntu host.
